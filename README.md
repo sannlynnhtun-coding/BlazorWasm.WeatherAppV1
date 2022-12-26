@@ -7,4 +7,5 @@ Source Code - https://github.com/WebDevSimplified/js-weather-app
 <br />
 
 Default website image for social sharing
+<br />
 https://stackoverflow.com/questions/19632323/default-website-image-for-social-sharing
