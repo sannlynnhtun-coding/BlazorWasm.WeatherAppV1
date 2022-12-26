@@ -1,3 +1,100 @@
 ﻿@page "/"
 
 <PageTitle>[Blazor WASM] Weather App</PageTitle>
+
+<header class="header">
+    <div class="header-left">
+        <img class="weather-icon large" src="icons/@(current.iconCodeStr).svg" data-current-icon />
+        <div class="header-current-temp">
+            <span data-current-temp>@current.currentTemp</span>&deg;
+        </div>
+    </div>
+    <div class="header-right">
+        <div class="info-group">
+            <div class="label">High</div>
+            <div><span data-current-high>@current.highTemp</span>&deg;</div>
+        </div>
+        <div class="info-group">
+            <div class="label">FL High</div>
+            <div><span data-current-fl-high>@current.highFeelsLike</span>&deg;</div>
+        </div>
+        <div class="info-group">
+            <div class="label">Wind</div>
+            <div>
+                <span data-current-wind>@current.windSpeed</span><span class="value-sub-info">mph</span>
+            </div>
+        </div>
+        <div class="info-group">
+            <div class="label">Low</div>
+            <div><span data-current-low>@current.lowTemp</span>&deg;</div>
+        </div>
+        <div class="info-group">
+            <div class="label">FL Low</div>
+            <div><span data-current-fl-low>@current.lowFeelsLike</span>&deg;</div>
+        </div>
+        <div class="info-group">
+            <div class="label">Precip</div>
+            <div>
+                <span data-current-precip>@current.precip</span><span class="value-sub-info">in</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="day-section" data-day-section>
+    @foreach (var day in daily)
+    {
+        <div class="day-card">
+            <img src="icons/@(day.iconCodeStr).svg" class="weather-icon" />
+            <div class="day-card-day">@day.timestamp.ToDateTime("dddd")</div>
+            <div><span data-temp>@day.maxTemp</span><span>&deg;</span></div>
+        </div>
+    }
+</section>
+
+<table class="hour-section">
+    <tbody data-hour-section>
+        @foreach (var hour in hourly)
+        {
+            <tr class="hour-row">
+                <td>
+                    <div class="info-group">
+                        <div class="label" data-day>@hour.timestamp.ToDateTime("dddd")</div>
+                        <div data-time>@hour.timestamp.ToDateTime("hh tt")</div>
+                    </div>
+                </td>
+                <td>
+                    <img data-icon class="weather-icon" src="icons/@(hour.iconCodeStr).svg" />
+                </td>
+                <td>
+                    <div class="info-group">
+                        <div class="label">Temp</div>
+                        <div><span data-temp>@hour.temp</span><span>&deg;</span></div>
+                    </div>
+                </td>
+                <td>
+                    <div class="info-group">
+                        <div class="label">FL Temp</div>
+                        <div><span data-fl-temp>@hour.feelsLike</span><span>&deg;</span></div>
+                    </div>
+                </td>
+                <td>
+                    <div class="info-group">
+                        <div class="label">Wind</div>
+                        <div>
+                            <span data-wind>@hour.windSpeed</span><span class="value-sub-info">mph</span>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="info-group">
+                        <div class="label">Precip</div>
+                        <div>
+                            <span data-precip>@hour.precip</span><span class="value-sub-info">in</span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
