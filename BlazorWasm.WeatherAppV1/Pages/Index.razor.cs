@@ -1,10 +1,10 @@
-﻿using BlazorWASM.WeatherApp.Models;
+﻿using BlazorWasm.WeatherAppV1.Models;
 using Microsoft.AspNetCore.Components;
 using System;
 using System.Net.Http.Json;
 using System.Reflection;
 
-namespace BlazorWASM.WeatherApp.Pages
+namespace BlazorWasm.WeatherAppV1.Pages
 {
     public partial class Index
     {

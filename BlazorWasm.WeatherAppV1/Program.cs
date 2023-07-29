@@ -1,4 +1,4 @@
-using BlazorWASM.WeatherApp;
+using BlazorWasm.WeatherAppV1;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 

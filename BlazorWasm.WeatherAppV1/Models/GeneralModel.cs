@@ -1,4 +1,4 @@
-﻿namespace BlazorWASM.WeatherApp.Models
+﻿namespace BlazorWasm.WeatherAppV1.Models
 {
     public class OpenMeteoWeatherResponseModel
     {
